@@ -3,6 +3,18 @@ import { ResourceType } from '../models';
 import { useTranslation, Trans } from 'react-i18next';
 import { Button, MenuItem, Select, TextField } from '@material-ui/core'
 import { Autocomplete } from '@material-ui/lab'
+import { createTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
+const theme = createTheme({
+    palette: {
+      primary: {
+        // Purple and green play nicely together.
+        main: '#ff533d',
+        darker: '#ff1e00'
+      },
+    },
+  });
 
 const Form = ({onSubmit, onClose, formData, setFormData, client}) => {
 
@@ -66,8 +78,10 @@ const Form = ({onSubmit, onClose, formData, setFormData, client}) => {
             <TextField type="text" label={t('form.hours')} name="openingHours" value={formData.openingHours} onChange={onChange} />
             <TextField type="number" label="Latitude" name="lat" value={formData.latlng[0]} step="0.00001" onChange={onChange} />
             <TextField type="number" label="Longitude" name="lng" value={formData.latlng[1]} step="0.00001" onChange={onChange} />
-            <Button onClick={onSubmit} variant="contained" color="secondary" style={buttonStyle}>{t('form.submit')}</Button>
-            <Button onClick={onClose} variant="contained" color="secondary" style={buttonStyle}>{t('form.close')}</Button>
+            <ThemeProvider theme={theme}>
+                <Button onClick={onSubmit} variant="contained" color="primary" style={buttonStyle}>{t('form.submit')}</Button>
+                <Button onClick={onClose} variant="contained" color="primary" style={buttonStyle}>{t('form.close')}</Button>
+            </ThemeProvider>
         </div>
     )
 }
