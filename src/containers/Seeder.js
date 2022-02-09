@@ -3,12 +3,13 @@ import {DataStore, Predicates} from '@aws-amplify/datastore';
 import {Resource} from '../models';
 import {withAuthenticator} from '@aws-amplify/ui-react';
 import { useTranslation, Trans } from 'react-i18next';
+import { Button, TextField } from '@material-ui/core'
 
 const Seeder = ({client}) => {
 
     const {t, i18n} = useTranslation();
 
-    const [data, setData] = useState(null)
+    const [data, setData] = useState("")
 
     const onChange = (e) => {
         setData(e.target.value);
@@ -44,13 +45,14 @@ const Seeder = ({client}) => {
                 };
             })
         });
+        setData("")
     }
 
 
     return (
-        <div style={{display: "flex", flexDirection: "column"}}>
-            <textarea name="data" onChange={onChange} style={{width: 800, height: 600}} />
-            <button onClick={processData}>{t('home.db')}</button>
+        <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "100%"}}>
+            <TextField name="data" onChange={onChange} variant="outlined" multiline rows="25" label="Copy and paste the content of your spreadsheet here" value={data} style={{width: "60vw", marginBottom: 10, borderRadius: 10, backgroundImage: "url(/flamingo.jpg)", backgroundSize: "cover"}} />
+            <Button variant="contained" color="secondary" onClick={processData} style={{width: "60vw"}}>{t('home.db') }</Button>
         </div>
     )
 
