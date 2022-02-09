@@ -188,7 +188,7 @@ const ResourceList = ({user, client}) => {
     return (
         <div style={{display: "flex", flexDirection: "column", width: "100%", height: "100%", backgroundColor: "#F5F5F5", color: "#49274A"}}>
             <Nav />
-            <div style={{display: "flex", height: "100%", width: "100%"}}>
+            <div style={{display: "flex", height: "82vh", width: "100%"}}>
                 {resourceList.length !== 0 && (selectedResource.id === 0 ? <Map resources={resourceList} userCoords={null} route={null} setSelectedResource={setSelectedResource} /> : <Map resources={[selectedResource]} userCoords={userCoords} route={route} setSelectedResource={setSelectedResource} />)}
                 <div style={styles.resources} >
                     {(resourceList && resourceList.length !== 0) ? displayResources() : <h3>No resources to display for {category}.</h3>}
@@ -211,7 +211,9 @@ const styles = {
     },
     resources: {
         display: "flex",
-        flexDirection: "column"
+        flexDirection: "column",
+        oveflowX: "hidden",
+        overflowY: "scroll"
     },
     heading: {
         margin: 0,
