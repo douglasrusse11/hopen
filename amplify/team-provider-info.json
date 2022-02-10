@@ -1,15 +1,57 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-hopen-dev-142501-authRole",
-      "UnauthRoleArn": "arn:aws:iam::264950887259:role/amplify-hopen-dev-142501-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::264950887259:role/amplify-hopen-dev-142501-authRole",
+      "AuthRoleName": "amplify-hopen-dev-94200-authRole",
+      "UnauthRoleArn": "arn:aws:iam::264950887259:role/amplify-hopen-dev-94200-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::264950887259:role/amplify-hopen-dev-94200-authRole",
       "Region": "eu-west-1",
-      "DeploymentBucketName": "amplify-hopen-dev-142501-deployment",
-      "UnauthRoleName": "amplify-hopen-dev-142501-unauthRole",
-      "StackName": "amplify-hopen-dev-142501",
-      "StackId": "arn:aws:cloudformation:eu-west-1:264950887259:stack/amplify-hopen-dev-142501/9540a4f0-82a1-11ec-b54b-0202ecf84439",
-      "AmplifyAppId": "d1x7i4gx0fnd4h"
+      "DeploymentBucketName": "amplify-hopen-dev-94200-deployment",
+      "UnauthRoleName": "amplify-hopen-dev-94200-unauthRole",
+      "StackName": "amplify-hopen-dev-94200",
+      "StackId": "arn:aws:cloudformation:eu-west-1:264950887259:stack/amplify-hopen-dev-94200/8adc8110-84d5-11ec-8689-06c3437970eb",
+      "AmplifyAppId": "d16l9nx7jhxdo4"
+    },
+    "categories": {
+      "auth": {
+        "hopenc485c56a": {}
+      },
+      "function": {
+        "scraper": {},
+        "addDataToDB": {},
+        "hopenc485c56aPostConfirmation": {
+          "deploymentBucketName": "amplify-hopen-dev-94200-deployment",
+          "s3Key": "amplify-builds/hopenc485c56aPostConfirmation-6b4d545745614f703554-build.zip"
+        }
+      }
+    }
+  },
+  "base": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-hopen-base-94448-authRole",
+      "UnauthRoleArn": "arn:aws:iam::264950887259:role/amplify-hopen-base-94448-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::264950887259:role/amplify-hopen-base-94448-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-hopen-base-94448-deployment",
+      "UnauthRoleName": "amplify-hopen-base-94448-unauthRole",
+      "StackName": "amplify-hopen-base-94448",
+      "StackId": "arn:aws:cloudformation:eu-west-1:264950887259:stack/amplify-hopen-base-94448/ee5b3ce0-84d5-11ec-b80e-06d5436a8c2f",
+      "AmplifyAppId": "d16l9nx7jhxdo4",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-hopen-base-94448-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "hopenc485c56a": {}
+      },
+      "function": {
+        "hopenc485c56aPostConfirmation": {
+          "deploymentBucketName": "amplify-hopen-base-94448-deployment",
+          "s3Key": "amplify-builds/hopenc485c56aPostConfirmation-6b4d545745614f703554-build.zip"
+        },
+        "formfunction": {
+          "deploymentBucketName": "amplify-hopen-base-94448-deployment",
+          "s3Key": "amplify-builds/formfunction-537853544358504e5730-build.zip"
+        }
+      }
     }
   }
 }

@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "hopen",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "/Users/codeclanstudent/codeclan_work/week_13/hopen/amplify/backend/api/hopen/schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 365,
+      "apiKeyExpirationDate": "2023-02-08T10:53:11.247Z",
+      "keyDescription": "public"
+    },
+    "additionalAuthTypes": [],
+    "conflictResolution": {
+      "defaultResolutionStrategy": {
+        "type": "AUTOMERGE"
+      }
+    }
+  }
+}

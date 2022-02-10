@@ -1,4 +1,36 @@
-# Getting Started with Create React App
+# Description
+
+An app for an NGO providing free legal services for displaced people seeking international protection in Greece. The main goal of the app is to help displaced people in Athens easily access all the information they might need about the support available to them.
+
+
+## Why?
+
+Would like to explore how technology could be used to solve real world issues, support underprivileged people and grassroots organisations
+
+
+## MVP Acceptance Criteria
+
+User should be able to:
+
+- Access info about the type of support they require (food/clothing/sanitary products distribution, translations services, medical services, legal advice, etc.)
+- Access a map showing where exactly the support is available
+- Contact the admins with any questions
+
+Admin should be able to:
+
+- Publish the info separating in into an appropriate type
+- Update/delete the info
+- Respond to queries from the user
+- See collated news and current events in Athens by keyword and add them to the app as desired
+
+
+## Potential Extensions
+
+- Mobile/desktop versions
+- User can switch to another language version
+- Sort the data by distance from the user
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
