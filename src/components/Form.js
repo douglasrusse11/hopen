@@ -1,8 +1,22 @@
 import { useState } from 'react';
 import { ResourceType } from '../models';
 import { useTranslation, Trans } from 'react-i18next';
+import { Button, MenuItem, Select, TextField } from '@material-ui/core'
+import { Autocomplete } from '@material-ui/lab'
+import { createTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
 
-const Form = ({onSubmit, formData, setFormData, client}) => {
+const theme = createTheme({
+    palette: {
+      primary: {
+        // Purple and green play nicely together.
+        main: '#ff533d',
+        darker: '#ff1e00'
+      },
+    },
+  });
+
+const Form = ({onSubmit, onClose, formData, setFormData, client}) => {
 
     const [addressList, setAddressList] = useState([])
     const [lastRequest, setLastRequest] = useState(Date.now());
@@ -45,27 +59,35 @@ const Form = ({onSubmit, formData, setFormData, client}) => {
 
     return (
         <div style={{display: "flex", flexDirection: "column"}}>
-            <select name="category" onChange={onChange} defaultValue={formData.category} >
+            <Select name="category" onChange={onChange} defaultValue={formData.category} >
                     { Object.values(ResourceType).map((resourceType, index) => (
-                            <option key={`resourceOption_${index}`} value={resourceType} >{resourceType}</option>
+                            <MenuItem key={`resourceOption_${index}`} value={resourceType} >{resourceType}</MenuItem>
                     ))}
-            </select>
-            <input type="text" placeholder={t('form.name')} name="name" value={formData.name} onChange={onChange} />
-            <input type="search" placeholder={t('form.address')} name="address" list="addresses" value={formData.address} onChange={onChange} autoComplete="true"/>
-            <datalist id="addresses">
-                { addressList.map((address, index) => (
-                    <option value={address.Place.Label} key={`address_${index}`}  />
-                ))}
-            </datalist>
-            <input type="text" placeholder={t('form.description')} name="description" value={formData.description} onChange={onChange} />
-            <input type="text" placeholder={t('form.phone')} name="phoneNumber" value={formData.phoneNumber} onChange={onChange} />
-            <input type="text" placeholder={t('form.email')} name="emailAddress" value={formData.emailAddress} onChange={onChange} />
-            <input type="text" placeholder={t('form.hours')} name="openingHours" value={formData.openingHours} onChange={onChange} />
-            <input type="number" placeholder="Latitude" name="lat" value={formData.latlng[0]} step="0.00001" onChange={onChange} />
-            <input type="number" placeholder="Longitude" name="lng" value={formData.latlng[1]} step="0.00001" onChange={onChange} />
-            <button onClick={onSubmit}>{t('form.submit')}</button>
+            </Select>
+            <TextField type="text" label={t('form.name')} name="name" value={formData.name} onChange={onChange} />
+            <Autocomplete  
+                freeSolo
+                options={addressList}
+                defaultValue={{Place: {Label: formData.address}}}
+                getOptionLabel={option => option.Place.Label}
+                renderInput={(params) => <TextField {...params} label={t('form.address')} name="address" onChange={onChange} />} 
+                />
+            <TextField type="text" label={t('form.description')} name="description" value={formData.description} onChange={onChange} />
+            <TextField type="text" label={t('form.phone')} name="phoneNumber" value={formData.phoneNumber} onChange={onChange} />
+            <TextField type="text" label={t('form.email')} name="emailAddress" value={formData.emailAddress} onChange={onChange} />
+            <TextField type="text" label={t('form.hours')} name="openingHours" value={formData.openingHours} onChange={onChange} />
+            <TextField type="number" label="Latitude" name="lat" value={formData.latlng[0]} step="0.00001" onChange={onChange} />
+            <TextField type="number" label="Longitude" name="lng" value={formData.latlng[1]} step="0.00001" onChange={onChange} />
+            <ThemeProvider theme={theme}>
+                <Button onClick={onSubmit} variant="contained" color="primary" style={buttonStyle}>{t('form.submit')}</Button>
+                <Button onClick={onClose} variant="contained" color="primary" style={buttonStyle}>{t('form.close')}</Button>
+            </ThemeProvider>
         </div>
     )
+}
+
+const buttonStyle = {
+    marginTop: 3
 }
 
 export default Form;

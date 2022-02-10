@@ -3,7 +3,19 @@ import {DataStore, Predicates} from '@aws-amplify/datastore';
 import {Resource} from '../models';
 import {withAuthenticator} from '@aws-amplify/ui-react';
 import { useTranslation, Trans } from 'react-i18next';
-import { Button, TextField } from '@material-ui/core'
+import { Button, TextField } from '@material-ui/core';
+import { createTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
+const theme = createTheme({
+    palette: {
+      primary: {
+        // Purple and green play nicely together.
+        main: '#ff533d',
+        darker: '#ff1e00'
+      },
+    },
+  });
 
 const Seeder = ({client}) => {
 
@@ -52,7 +64,7 @@ const Seeder = ({client}) => {
     return (
         <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "100%"}}>
             <TextField name="data" onChange={onChange} variant="outlined" multiline rows="25" label="Copy and paste the content of your spreadsheet here" value={data} style={{width: "60vw", marginBottom: 10, borderRadius: 10, backgroundImage: "url(/flamingo.jpg)", backgroundSize: "cover"}} />
-            <Button variant="contained" color="secondary" onClick={processData} style={{width: "60vw"}}>{t('home.db') }</Button>
+            <Button variant="contained" color="primary" onClick={processData} style={{width: "60vw"}}>{t('home.db') }</Button>
         </div>
     )
 
