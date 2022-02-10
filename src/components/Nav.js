@@ -33,9 +33,11 @@ const Nav = () => {
 const navStyle = {
     display: 'flex',
     width: "100%",
+    height: "6vh",
     backgroundColor: "#FF533D",
     padding: '1vh 0vh 1vh 0vh',
-    justifyContent: "space-evenly"
+    justifyContent: "space-evenly",
+    alignItems: "center"
 };
 const linkStyle = {
     textDecoration: 'none'
