@@ -46,30 +46,7 @@ const lngs = {
 
     return (
         <>
-        {/* <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-            onClick={() => setDisplayMenu(!displayMenu)}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            HopeN
-          </Typography>
-          <Button color="inherit"
-        //   {user ? <h1 style={styles.heading} onClick={() => {Auth.signOut(); setDisplayLogin(false)}}>Sign Out</h1> : <h1 style={styles.heading} 
-          onClick={() => setDisplayLogin(!displayLogin)}
-          
-          >Login</Button>
-        </Toolbar>
-      </AppBar>
-    </Box> */}
+       
 
         <div style={styles.container}>
             <div style={styles.headings}>

@@ -1,21 +1,18 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { NEWS_API_KEY } from '../config';
-import { Grid, Button, Card, CardContent, CardActions, Typography} from '@material-ui/core';
+import { Grid, Button, Card, CardContent, CardActions, Typography, CardMedia, CardActionArea, Box} from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import { useTranslation, Trans } from 'react-i18next';
 
-
-async function getArticles () {
-        const response = await fetch(
-            `https://newsapi.org/v2/everything?q=refuges&apiKey=${NEWS_API_KEY}`);
-            const body = await response.json();
-            return body.articles;
-
-};
-
 function NewsAPI(){
-    const [query, setQuery] = React.useState("");
-    const [list, setList] = React.useState(null);
+    const [query, setQuery] = React.useState("displaced");
+    const [list, setList] = React.useState([]);
+
+    useEffect(() => {
+        getArticles(query).then(setList);
+    }, [])
+ 
     const [t, i18n] = useTranslation();
 
     const search = (e) => {
@@ -23,6 +20,14 @@ function NewsAPI(){
         getArticles(query).then(setList);
     };
 
+async function getArticles () {
+        const response = await fetch(
+            `https://newsapi.org/v2/everything?q=${query}&pageSize=5&sortBy=popularity&apiKey=${NEWS_API_KEY}`);
+            const body = await response.json();
+            console.log(body);
+            return body.articles;
+
+};
 
     return (
         <div>
@@ -46,7 +51,11 @@ function NewsAPI(){
                             ))}
                         </ul>
                 }
-
+                <Typography>
+                <p style={{ textAlign: "center" }}>
+          Powered by <a href="https://newsapi.org/">NewsAPI.org</a>
+        </p>
+                </Typography>
             </Grid>
         </div>
         );
@@ -58,15 +67,27 @@ function Item({ item }) {
     const [t, i18n] = useTranslation();
 
     return (
-        <Card>
-            <CardContent>
-                <Typography gutterBottom variant="headline" component="h2">
-                    <a href={item.url}></a>{item.name}
-                </Typography>
-                <Typography component="p">
-                    {item.description}
-                </Typography>
-            </CardContent>
+        <Card style={{width: 400}}>
+            <CardActionArea>  
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                        <a href={item.url}></a>{item.name}
+                    </Typography>
+                    <Typography>
+                        {item.title}
+                    </Typography>
+                    {/* <Typography component="p">
+                        {item.description}
+                    </Typography> */}
+                    <CardMedia
+                    component="img"
+                    height="140"
+                    image={item.urlToImage}
+                />
+                </CardContent>
+                
+            </CardActionArea>
+           
             <CardActions>
                 <Button size="small" color="primary" href={item.url} target="_blank">
                 {t('news.readmore')}

@@ -48,11 +48,11 @@ const ContactForm = () => {
             <form>
               <Grid container spacing={1}>
                 <Grid item xs={12} sm={6} item>
-                    <TextField label={t('contact.name')} variant="outlined" fullWidth required
+                    <TextField label="Name" variant="outlined" fullWidth 
                       onChange={e => updateFormState('name', e.target.value)}/>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <TextField label={t('contact.message')} variant="outlined" type="email" required
+                    <TextField label="Email" variant="outlined" fullWidth 
                       onChange={e => updateFormState('email', e.target.value)}/>
                 </Grid>
                 <Grid item xs={12}>
@@ -70,88 +70,6 @@ const ContactForm = () => {
         </Card>
       </Grid>
     </div>
-    
-     
-    //   <TextField
-    //     id="outlined-basic" 
-    //     label="Name"
-    //     variant="outlined"
-    //     type="text"
-    //     required
-    //     onChange={e => updateFormState('name', e.target.value)}
-    //     />
-
-    //     <br />
-
-    //   <TextField
-    //     id="outlined-basic"
-    //     label="Email"
-    //     variant="outlined"
-    //     type="email"
-    //     required
-    //     onChange={e => updateFormState('email', e.target.value)}
-    //     />
-
-    //     <br />
-
-    //   <TextField
-    //     id="standard-multiline-flexible"
-    //     label="Message"
-    //     placeholder="Message"
-    //     variant="outlined"
-    //     multiline
-    //     rowsMax={6}
-    //     required
-    //     type="text"
-    //     onChange={e => updateFormState('message', e.target.value)}
-    //     />
-
-    //     <br />
-
-    //   <Button variant="outlined" onClick={addContact}>submit</Button>
-      
-     
-    //   </div>
-
-    
-    // <Container>
-    // <div>
-    //   <h3>{t('contact.intro')}</h3>
-    //   <br/>
-    //     <Form>
-    //       <Form.Group>
-    //         <Form.Label>{t('contact.name')}</Form.Label>
-    //         <Form.Control placeholder={t('contact.name')} onChange={e => updateFormState('name', e.target.value)} />
-    //       </Form.Group>
-    //       <Form.Group>
-    //         <Form.Label>{t('contact.email')}</Form.Label>
-    //         <Form.Control placeholder={t('contact.email')} onChange={e => updateFormState('email', e.target.value)} />
-    //       </Form.Group>
-    //       <Form.Group>
-    //         <Form.Label>{t('contact.message')}</Form.Label>
-    //         <Form.Control placeholder={t('contact.message')} onChange={e => updateFormState('message', e.target.value)} />
-    //       </Form.Group>
-    //       <Button onClick={addContact}>{t('contact.send')}</Button>
-    //     </Form>
-    //   </div>
-    // </Container>
-    // <>
-    //   <CssBaseline />
-    //   <AppBar position="relative">
-    //     <Toolbar >
-    //       <ConnectWithoutContactIcon />
-    //         <Typography gutterBottom variant="h6">
-    //           Get in touch
-    //         </Typography>
-    //     </Toolbar>
-    //   </AppBar>
-    //   <main>
-    //     <div><
-
-    //     >
-    //   </main>
-    // </>
-   
   );
 }
 
