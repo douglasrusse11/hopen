@@ -1,0 +1,17 @@
+.amplify-button[data-variation=primary] {
+    background-color: #ff533d;
+}
+.amplify-button[data-variation=primary]:hover {
+    background-color: #ff1e00;
+}
+.amplify-button[data-variation=link] {
+    color: var(--amplify-components-tabs-item-color)
+}
+.amplify-button[data-variation=link]:hover {
+    background-color: rgba(255, 83, 61, 0.3);
+}
+
+.amplify-tabs-item[data-state=active] {
+    border-color: #ff533d;
+    color: var(--amplify-components-tabs-item-color)
+}

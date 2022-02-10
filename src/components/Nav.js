@@ -1,17 +1,20 @@
 import { Link } from 'react-router-dom';
 import { ResourceType } from '../models';
+import { useTranslation, Trans } from 'react-i18next';
 
 
 const Nav = () => {
 
+    const {t, i18n} = useTranslation();
+
     const categoryMap = {
-        Accomodation: <><span className="material-icons">house</span>Accomodation</>,
-        Food: <><img src="/foodicon.svg" width="24px" />Food</>,
-        Clothing: <><img src="/clothingicon.png" width="24px" />Clothing</>,
-        Health: <><span className="material-icons">medical_services</span>Health Services</>,
-        Sport: <><span className="material-icons">sports_soccer</span>Sport Activities</>,
-        Legal: <><img src="/legalicon.png" width="24px" />Legal Services</>,
-        Education: <><span className="material-icons">school</span>Education</>
+        Accomodation: <><span className="material-icons">house</span>  {t('nav.accommodation')}  </>,
+        Food: <><span className="material-icons">local_dining</span>  {t('nav.food')}  </>,
+        Clothing: <><span className="material-icons">checkroom</span>   {t('nav.clothing')}  </>,
+        Health: <><span className="material-icons">medical_services</span>  {t('nav.health')}  </>,
+        Sport: <><span className="material-icons">sports_soccer</span>  {t('nav.sports')}  </>,
+        Legal: <><span className="material-icons">gavel</span>  {t('nav.legal')}  </>,
+        Education: <><span className="material-icons">school</span>  {t('nav.education')}  </>
     }
 
     return (
@@ -30,7 +33,11 @@ const Nav = () => {
 const navStyle = {
     display: 'flex',
     width: "100%",
-    backgroundColor: "#aaabb8"
+    height: "6vh",
+    backgroundColor: "#FF533D",
+    padding: '1vh 0vh 1vh 0vh',
+    justifyContent: "space-evenly",
+    alignItems: "center"
 };
 const linkStyle = {
     textDecoration: 'none'
@@ -38,8 +45,8 @@ const linkStyle = {
 const headerStyle = {
     fontSize: 24,
     margin: 0,
-    marginLeft: 10,
-    color: 'black',
+    marginLeft: 0,
+    color: '#F5F5F5',
     alignText: 'center'
 };
 

@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { NEWS_API_KEY } from '../config';
 import { Grid, Button, Card, CardContent, CardActions, Typography, CardMedia, CardActionArea, Box} from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
+import { useTranslation, Trans } from 'react-i18next';
 
 function NewsAPI(){
     const [query, setQuery] = React.useState("displaced");
@@ -11,6 +12,8 @@ function NewsAPI(){
     useEffect(() => {
         getArticles(query).then(setList);
     }, [])
+ 
+    const [t, i18n] = useTranslation();
 
     const search = (e) => {
         e.preventDefault();
@@ -31,7 +34,7 @@ async function getArticles () {
             <form onSubmit={search}>
                 <TextField style={{ padding: 24 }}
                     value={query}
-                    placeholder="Search for news"
+                    placeholder={t('news.search')}
                     margin="normal"
                     onChange={e => setQuery(e.target.value)}
 
@@ -41,7 +44,7 @@ async function getArticles () {
                 {!list
                     ? null
                     : list.length === 0
-                        ? <p><i>Searching</i></p>
+                        ? <p><i>{t('news.noresults')}</i></p>
                         : <ul>
                             {list.map((item, i) => (
                                 <Item key={i} item={item} />
@@ -59,8 +62,9 @@ async function getArticles () {
 }
 
 function Item({ item }) {
-    // const separateWords = s => s.replace(/[A-Z][a-z]+/g, '$& ').trim();
-    // const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
+    const separateWords = s => s.replace(/[A-Z][a-z]+/g, '$& ').trim();
+    const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
+    const [t, i18n] = useTranslation();
 
     return (
         <Card style={{width: 400}}>
@@ -86,7 +90,7 @@ function Item({ item }) {
            
             <CardActions>
                 <Button size="small" color="primary" href={item.url} target="_blank">
-                    Read more
+                {t('news.readmore')}
                 </Button>
             </CardActions>
         </Card>

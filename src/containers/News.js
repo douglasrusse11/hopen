@@ -1,7 +1,8 @@
 import React from 'react';
+
 import { Grid, Button, Card, CardContent, CardActions, Typography} from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
-
+import { useTranslation, Trans } from 'react-i18next';
 
 
 
@@ -20,7 +21,10 @@ async function searchNews(q) {
 }
 
 function News() {
+
   const [query, setQuery] = React.useState("");
+  const {t, i18n} = useTranslation();
+
   const [list, setList] = React.useState(null);
 
   const search = (e) => {
@@ -39,12 +43,15 @@ function News() {
           onChange={e => setQuery(e.target.value)}
           
         />
+
+        <button>{t('contact.search')}</button>
+
       </form>
       <Grid container spacing={24} style={{padding:24}}>
       {!list
         ? null
         : list.length === 0
-          ? <p><i>No results</i></p>
+          ? <p><i>{t('contact.noresults')}</i></p>
           : <ul>
             {list.map((item, i) => (
               <Item key={i} item={item} />

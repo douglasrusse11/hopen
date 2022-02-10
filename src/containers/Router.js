@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import {useState, useEffect} from 'react';
 import {Auth, Hub} from 'aws-amplify';
 import Location from 'aws-sdk/clients/location';
+import { DataStore } from '@aws-amplify/datastore';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Home from './Home';
@@ -17,16 +18,22 @@ import News from './NewsAPI';
 
 
 
+
 const Router = () => {
     const [user, setUser] = useState(null);
     const [client, setClient] = useState(null);
-    const [displayMenu, setDisplayMenu] = useState(false)
+    const [displayMenu, setDisplayMenu] = useState(false);
+    const [displayLogin, setDisplayLogin] = useState(false);
 
     useEffect(() => {
+        DataStore.clear();
         getUser()
         Hub.listen('auth', (data) => {
             const { payload: { event }} = data
-            if (event === 'signIn' || event === 'signOut') getUser()
+            if (event === 'signIn' || event === 'signOut') {
+                getUser();
+                setDisplayLogin(false);
+            }
         })
     }, [])
       
@@ -57,7 +64,7 @@ const Router = () => {
     return (
         
             <BrowserRouter >
-            <Header user={user} displayMenu={displayMenu} setDisplayMenu={setDisplayMenu} />
+            <Header user={user} displayMenu={displayMenu} setDisplayMenu={setDisplayMenu} displayLogin={displayLogin} setDisplayLogin={setDisplayLogin} />
             <div style={{display: "flex", width: "100%", height: "88vh"}}>
             {displayMenu && <Menu user={user} />}
             <Routes>

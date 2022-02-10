@@ -1,9 +1,10 @@
 import Amplify from "aws-amplify";
 import { API } from 'aws-amplify';
-import { Typography, Card, CardContent, Grid, TextField, Button } from '@material-ui/core'
 
-import awsExports from "../aws-exports";
-Amplify.configure(awsExports);
+import { Typography, Card, CardContent, Grid, TextField, Button } from '@material-ui/core'
+import { useTranslation, Trans } from 'react-i18next';
+
+
 
 async function addContact() {
   const data = {
@@ -28,6 +29,10 @@ function updateFormState(key, value) {
 
 
 const ContactForm = () => {
+
+  const {t, i18n} = useTranslation();
+
+
   return (
     <div className="contact-form">
 
@@ -35,10 +40,10 @@ const ContactForm = () => {
         <Card style={{ maxWidth: 450, padding: "20px 5px", margin: "0 auto" }}>
           <CardContent>
             <Typography gutterBottom variant="h5" align="center">
-              Contact Us
+            {t('contact.contact')}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p" gutterBottom>
-              Fill up the form and we will get back to you as soon as possible
+            {t('contact.fillform')}
             </Typography>
             <form>
               <Grid container spacing={1}>
@@ -51,12 +56,12 @@ const ContactForm = () => {
                       onChange={e => updateFormState('email', e.target.value)}/>
                 </Grid>
                 <Grid item xs={12}>
-                    <TextField label="Message" placeholder="Message" multiline rows={4} variant="outlined" fullWidth
+                    <TextField label={t('contact.message')} placeholder={t('contact.message')} multiline rows={4} variant="outlined" fullWidth
                       onChange={e => updateFormState('message', e.target.value)}/> 
                 </Grid>
                 <Grid item xs={12}>
                     <Button type="submit" variant="contained" color="primary" fullWidth 
-                    onClick={addContact}>submit</Button>   
+                    onClick={addContact}>{t('contact.submit')}</Button>   
                 </Grid>
 
             </Grid>

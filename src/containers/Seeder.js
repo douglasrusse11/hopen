@@ -2,10 +2,26 @@ import {useState} from 'react';
 import {DataStore, Predicates} from '@aws-amplify/datastore';
 import {Resource} from '../models';
 import {withAuthenticator} from '@aws-amplify/ui-react';
+import { useTranslation, Trans } from 'react-i18next';
+import { Button, TextField } from '@material-ui/core';
+import { createTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
+const theme = createTheme({
+    palette: {
+      primary: {
+        // Purple and green play nicely together.
+        main: '#ff533d',
+        darker: '#ff1e00'
+      },
+    },
+  });
 
 const Seeder = ({client}) => {
 
-    const [data, setData] = useState(null)
+    const {t, i18n} = useTranslation();
+
+    const [data, setData] = useState("")
 
     const onChange = (e) => {
         setData(e.target.value);
@@ -41,13 +57,16 @@ const Seeder = ({client}) => {
                 };
             })
         });
+        setData("")
     }
 
 
     return (
-        <div style={{display: "flex", flexDirection: "column"}}>
-            <textarea name="data" onChange={onChange} style={{width: 800, height: 600}} />
-            <button onClick={processData}>Seed DB</button>
+        <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "100%"}}>
+            <TextField name="data" onChange={onChange} variant="outlined" multiline rows="25" label={t('home.spreadsheet') } value={data} style={{width: "60vw", marginBottom: 10, borderRadius: 10, backgroundImage: "url(/flamingo.jpg)", backgroundSize: "cover"}} />
+            <ThemeProvider theme={theme}>
+            <Button variant="contained" color="primary" onClick={processData} style={{width: "60vw"}}>{t('home.db') }</Button>
+            </ThemeProvider>
         </div>
     )
 

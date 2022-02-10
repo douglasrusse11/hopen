@@ -5,6 +5,20 @@ import { useParams, Link } from 'react-router-dom';
 import Map from '../components/Map';
 import Form from '../components/Form';
 import Nav from '../components/Nav';
+import { useTranslation, Trans } from 'react-i18next';
+import { Button } from '@material-ui/core'
+import { createTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
+const theme = createTheme({
+    palette: {
+      primary: {
+        // Purple and green play nicely together.
+        main: '#ff533d',
+        darker: '#ff1e00'
+      },
+    },
+  });
 
 const initialState = {
     category: '',
@@ -26,6 +40,7 @@ const ResourceList = ({user, client}) => {
     const [userCoords, setUserCoords] = useState(null);
     const [route, setRoute] = useState(null);
     let { category } = useParams();
+    const {t, i18n} = useTranslation();
 
     useEffect(() => {
         setSelectedResource({id: 0});
@@ -121,10 +136,7 @@ const ResourceList = ({user, client}) => {
         return resourceList.map(resource => (
             <>
             { displayUpdateForm.id === resource.id && displayUpdateForm.display === true ? 
-                <>
-                <Form onSubmit={() => updateResource(resource.id)} formData={formData} setFormData={setFormData} />
-                <button onClick={() => setDisplayUpdateForm({id: 0, display: false})}>Close</button>
-                </>
+                <Form onSubmit={() => updateResource(resource.id)} onClose={() => setDisplayUpdateForm({id: 0, display: false})} formData={formData} setFormData={setFormData} client={client}/>
             : 
             <div key={resource.id} style={styles.resource} >
                 <div style={{width: "80%"}} onClick={() => {if (selectedResource.id === resource.id) {setSelectedResource({id: 0})} else {setSelectedResource(resource)}}}>
@@ -157,7 +169,7 @@ const ResourceList = ({user, client}) => {
     const displayForm = (style) => {
         return (
             <div style={styles.container}>
-                {user && user.isAdmin && (displayAddNew ? <button style={styles.button} onClick={() => {setFormData(initialState); setDisplayAddNew(false)}}>+ Add new</button> : <><Form onSubmit={createResource} formData={{...formData, category: category}} setFormData={setFormData} client={client} /><button style={{width: "100%"}} onClick={() => setDisplayAddNew(true)}>Close</button></>)}
+                {user && user.isAdmin && (displayAddNew ? <ThemeProvider theme={theme}><Button color="primary" variant="contained" style={styles.button} onClick={() => {setFormData(initialState); setDisplayAddNew(false)}}>{t('form.add')}</Button></ThemeProvider> : <Form onSubmit={createResource} onClose={() => setDisplayAddNew(true)} formData={{...formData, category: category}} setFormData={setFormData} client={client} />)}
             </div>
         )
     }
@@ -174,9 +186,9 @@ const ResourceList = ({user, client}) => {
     }
 
     return (
-        <div style={{display: "flex", flexDirection: "column", width: "100%", height: "100%", backgroundColor: "#29648a", color: "whitesmoke"}}>
+        <div style={{display: "flex", flexDirection: "column", width: "100%", height: "100%", backgroundColor: "#F5F5F5", color: "#49274A"}}>
             <Nav />
-            <div style={{display: "flex", height: "100%", width: "100%"}}>
+            <div style={{display: "flex", height: "82vh", width: "100%"}}>
                 {resourceList.length !== 0 && (selectedResource.id === 0 ? <Map resources={resourceList} userCoords={null} route={null} setSelectedResource={setSelectedResource} /> : <Map resources={[selectedResource]} userCoords={userCoords} route={route} setSelectedResource={setSelectedResource} />)}
                 <div style={styles.resources} >
                     {(resourceList && resourceList.length !== 0) ? displayResources() : <h3>No resources to display for {category}.</h3>}
@@ -191,6 +203,7 @@ const styles = {
     resource: {
         margin: 0,
         marginBottom: 10,
+        marginTop: 15,
         paddingLeft: 20,
         display: 'flex',
         justifyContent: 'space-between',
@@ -198,15 +211,18 @@ const styles = {
     },
     resources: {
         display: "flex",
-        flexDirection: "column"
+        flexDirection: "column",
+        width: "33vw",
+        oveflowX: "hidden",
+        overflowY: "scroll"
     },
     heading: {
         margin: 0,
-        color: 'whitesmoke'
+        color: '#0F1626'
     },
     button: {
-        height: 20,
-        marginLeft: 20
+        marginLeft: 20,
+        width: "30vw"
     }
 
 }

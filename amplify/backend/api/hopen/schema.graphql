@@ -1,7 +1,6 @@
 type Resource @model 
 @auth(rules: [
-  {allow: public, operations: [read] }
-  {allow: groups, groups: ["Admin"], operations: [create, read, update, delete]},
+  {allow: public, operations: [create, read, update, delete], provider: apiKey},
 ]){
   id: ID!
   category: ResourceType!

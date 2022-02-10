@@ -2,10 +2,5 @@
   "AppSyncApiName": "hopen",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
   "DynamoDBEnableServerSideEncryption": false,
-  "AuthCognitoUserPoolId": {
-    "Fn::GetAtt": [
-      "authhopenc485c56a",
-      "Outputs.UserPoolId"
-    ]
-  }
+  "AuthModeLastUpdated": "2022-02-08T10:53:14.822Z"
 }
