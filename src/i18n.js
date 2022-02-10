@@ -20,7 +20,9 @@ i18n
                 homeHeader: 'Welcome to HopeN',
                 homeText: "Thank you for visiting us! If you're looking for information on topics like asylum procedures, work permissions, registering children for school, or finding a doctor, you're in the right place. Our project aims to help refugees in Greece access services and exercise their rights.",
                 resources: "Resources",
-                db: "Seed DB"
+                db: "Seed DB",
+                contact: "Contact Us",
+                news: "News"
             },
             contact: {
                 intro: "Get in touch",
@@ -29,7 +31,10 @@ i18n
                 message: "Message",
                 send: "Send a message",
                 search: "Search",
-                noresults: "No results"
+                noresults: "No results",
+                contact: "Contact Us",
+                fillform: "Fill up the form and we will get back to you as soon as possible",
+                submit: "Submit"
             },
             nav: {
                 accommodation: "Accommodation",
@@ -51,6 +56,11 @@ i18n
                 phone: "Phone Number",
                 email: "Email Address",
                 hours: "Opening Hours"
+            },
+            news: {
+              search: "Search for news",
+              noresults: "No results",
+              readmore: "Read more"
             }
         }
       },
@@ -62,7 +72,9 @@ i18n
                 homeHeader: 'مرحبًا بكم في HopeN',
                 homeText: "شكرا لزيارتك دليل اللاجئ! إذا كنت تبحث عن معلومات حول مواضيع مثل إجراءات اللجوء ، أو أذونات العمل ، أو تسجيل الأطفال في المدرسة ، أو العثور على طبيب ، فأنت في المكان الصحيح. يهدف مشروعنا إلى مساعدة اللاجئين في اليونان على الوصول إلى الخدمات وممارسة حقوقهم.",
                 resources: "مصادر",
-                db: "ديسيبل البذور"
+                db: "ديسيبل البذور",
+                contact: "اتصل بنا",
+                news: "خبر"
               },
               contact: {
                 intro: "ابقى على تواصل",
@@ -71,7 +83,10 @@ i18n
                 message: "رسالة",
                 send: "ارسل رسالة",
                 search: "بحث",
-                noresults: "لا نتائج"
+                noresults: "لا نتائج",
+                contact: "اتصل بنا",
+                fillform: "املأ النموذج وسنعاود الاتصال بك في أقرب وقت ممكن",
+                submit: "إرسال"
               },
               nav: {
                 accommodation: "إقامة",
@@ -93,6 +108,11 @@ i18n
                 phone: "رقم التليفون",
                 email: "عنوان البريد الالكترونى",
                 hours: "ساعات العمل"
+            },
+            news: {
+              search: "ابحث عن ملفاتs",
+              noresults: "لا نتائج",
+              readmore: "اقرأ أكثر"
             }
           }
       }

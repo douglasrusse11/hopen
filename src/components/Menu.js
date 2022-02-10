@@ -12,10 +12,10 @@ const Menu = ({user}) => {
                 <h3>{t('home.resources')}</h3>
             </Link>
             <Link style={{textDecoration: "none", color: "whitesmoke"}} to="/contact">
-                <h3>Contact</h3>
+                <h3>{t('home.contact')}</h3>
             </Link>
             <Link style={{textDecoration: "none", color: "whitesmoke"}} to="/news">
-                <h3>News</h3>
+                <h3>{t('home.news')}</h3>
             </Link>
             { user && user.isAdmin && 
                 <Link style={{textDecoration: "none", color: "whitesmoke"}} to="/seeder">

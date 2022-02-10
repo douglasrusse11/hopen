@@ -40,28 +40,28 @@ const ContactForm = () => {
         <Card style={{ maxWidth: 450, padding: "20px 5px", margin: "0 auto" }}>
           <CardContent>
             <Typography gutterBottom variant="h5" align="center">
-              Contact Us
+            {t('contact.contact')}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p" gutterBottom>
-              Fill up the form and we will get back to you as soon as possible
+            {t('contact.fillform')}
             </Typography>
             <form>
               <Grid container spacing={1}>
                 <Grid item xs={12} sm={6} item>
-                    <TextField label="Name" variant="outlined" fullWidth required
+                    <TextField label={t('contact.name')} variant="outlined" fullWidth required
                       onChange={e => updateFormState('name', e.target.value)}/>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <TextField label="Email" variant="outlined" type="email" required
+                    <TextField label={t('contact.message')} variant="outlined" type="email" required
                       onChange={e => updateFormState('email', e.target.value)}/>
                 </Grid>
                 <Grid item xs={12}>
-                    <TextField label="Message" placeholder="Message" multiline rows={4} variant="outlined" fullWidth
+                    <TextField label={t('contact.message')} placeholder={t('contact.message')} multiline rows={4} variant="outlined" fullWidth
                       onChange={e => updateFormState('message', e.target.value)}/> 
                 </Grid>
                 <Grid item xs={12}>
                     <Button type="submit" variant="contained" color="primary" fullWidth 
-                    onClick={addContact}>submit</Button>   
+                    onClick={addContact}>{t('contact.submit')}</Button>   
                 </Grid>
 
             </Grid>
