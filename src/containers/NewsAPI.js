@@ -30,7 +30,7 @@ async function getArticles () {
 };
 
     return (
-        <div>
+        <div style={{width: "100%", height: "100%", overflowY: "scroll"}}>
             <form onSubmit={search}>
                 <TextField style={{ padding: 24 }}
                     value={query}
