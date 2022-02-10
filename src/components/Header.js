@@ -9,6 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import { useTranslation, Trans } from 'react-i18next';
 import ReactFlagsSelect from 'react-flags-select';
 import { Gb, Ar } from 'react-flags-select';
+import './authenticatorStyle.css';
 
 const customStyles = {
     content: {
@@ -19,7 +20,7 @@ const customStyles = {
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
     },
-    overlay: {zIndex: 1000}
+    overlay: {zIndex: 1100}
   };
 
 const Header = function ({ user, displayMenu, setDisplayMenu, displayLogin, setDisplayLogin }) {
@@ -36,11 +37,7 @@ const lngs = {
 
     let subtitle;
 
-    
-    function afterOpenModal() {
-        // references are now sync'd and can be accessed.
-        subtitle.style.color = '#f00';
-    }
+
 
     function selectLanguage(code) {
         setSelected(code);
@@ -111,7 +108,6 @@ const lngs = {
         </div>
         <Modal
             isOpen={displayLogin}
-            onAfterOpen={afterOpenModal}
             onRequestClose={() => setDisplayLogin(false)}
             style={customStyles}
             ariaHideApp={false}
