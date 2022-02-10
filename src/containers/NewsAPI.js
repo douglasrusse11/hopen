@@ -2,6 +2,7 @@ import React from 'react';
 import { NEWS_API_KEY } from '../config';
 import { Grid, Button, Card, CardContent, CardActions, Typography} from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
+import { useTranslation, Trans } from 'react-i18next';
 
 
 async function getArticles () {
@@ -15,6 +16,7 @@ async function getArticles () {
 function NewsAPI(){
     const [query, setQuery] = React.useState("");
     const [list, setList] = React.useState(null);
+    const [t, i18n] = useTranslation();
 
     const search = (e) => {
         e.preventDefault();
@@ -27,7 +29,7 @@ function NewsAPI(){
             <form onSubmit={search}>
                 <TextField style={{ padding: 24 }}
                     value={query}
-                    placeholder="Search for news"
+                    placeholder={t('news.search')}
                     margin="normal"
                     onChange={e => setQuery(e.target.value)}
 
@@ -37,7 +39,7 @@ function NewsAPI(){
                 {!list
                     ? null
                     : list.length === 0
-                        ? <p><i>No results</i></p>
+                        ? <p><i>{t('news.noresults')}</i></p>
                         : <ul>
                             {list.map((item, i) => (
                                 <Item key={i} item={item} />
@@ -53,6 +55,7 @@ function NewsAPI(){
 function Item({ item }) {
     const separateWords = s => s.replace(/[A-Z][a-z]+/g, '$& ').trim();
     const formatDate = s => new Date(s).toLocaleDateString(undefined, { dateStyle: 'long' });
+    const [t, i18n] = useTranslation();
 
     return (
         <Card>
@@ -66,7 +69,7 @@ function Item({ item }) {
             </CardContent>
             <CardActions>
                 <Button size="small" color="primary" href={item.url} target="_blank">
-                    Read more
+                {t('news.readmore')}
                 </Button>
             </CardActions>
         </Card>
