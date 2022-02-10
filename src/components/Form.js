@@ -58,7 +58,7 @@ const Form = ({onSubmit, onClose, formData, setFormData, client}) => {
     }
 
     return (
-        <div style={{display: "flex", flexDirection: "column"}}>
+        <div style={{display: "flex", flexDirection: "column", width: "30vw", paddingLeft: 20}}>
             <Select name="category" onChange={onChange} defaultValue={formData.category} >
                     { Object.values(ResourceType).map((resourceType, index) => (
                             <MenuItem key={`resourceOption_${index}`} value={resourceType} >{resourceType}</MenuItem>
@@ -87,7 +87,8 @@ const Form = ({onSubmit, onClose, formData, setFormData, client}) => {
 }
 
 const buttonStyle = {
-    marginTop: 3
+    marginTop: 3,
+    marginBottom: 2
 }
 
 export default Form;

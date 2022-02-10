@@ -212,6 +212,7 @@ const styles = {
     resources: {
         display: "flex",
         flexDirection: "column",
+        width: "33vw",
         oveflowX: "hidden",
         overflowY: "scroll"
     },
@@ -220,9 +221,8 @@ const styles = {
         color: '#0F1626'
     },
     button: {
-        height: 20,
-        paddingLeft: 20,
-        width: "100%"
+        marginLeft: 20,
+        width: "30vw"
     }
 
 }
