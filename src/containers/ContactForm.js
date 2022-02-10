@@ -43,11 +43,11 @@ const ContactForm = () => {
             <form>
               <Grid container spacing={1}>
                 <Grid item xs={12} sm={6} item>
-                    <TextField label="Name" variant="outlined" fullWidth required
+                    <TextField label="Name" variant="outlined" fullWidth 
                       onChange={e => updateFormState('name', e.target.value)}/>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <TextField label="Email" variant="outlined" type="email" required
+                    <TextField label="Email" variant="outlined" fullWidth 
                       onChange={e => updateFormState('email', e.target.value)}/>
                 </Grid>
                 <Grid item xs={12}>
@@ -65,52 +65,6 @@ const ContactForm = () => {
         </Card>
       </Grid>
     </div>
-    
-     
-    //   <TextField
-    //     id="outlined-basic" 
-    //     label="Name"
-    //     variant="outlined"
-    //     type="text"
-    //     required
-    //     onChange={e => updateFormState('name', e.target.value)}
-    //     />
-
-    //     <br />
-
-    //   <TextField
-    //     id="outlined-basic"
-    //     label="Email"
-    //     variant="outlined"
-    //     type="email"
-    //     required
-    //     onChange={e => updateFormState('email', e.target.value)}
-    //     />
-
-    //     <br />
-
-    //   <TextField
-    //     id="standard-multiline-flexible"
-    //     label="Message"
-    //     placeholder="Message"
-    //     variant="outlined"
-    //     multiline
-    //     rowsMax={6}
-    //     required
-    //     type="text"
-    //     onChange={e => updateFormState('message', e.target.value)}
-    //     />
-
-    //     <br />
-
-    //   <Button variant="outlined" onClick={addContact}>submit</Button>
-      
-     
-    //   </div>
-
-    
-    
-   
   );
 }
 

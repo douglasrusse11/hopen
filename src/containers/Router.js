@@ -10,10 +10,8 @@ import ResourceContainer from './ResourceContainer';
 import Menu from '../components/Menu';
 import Seeder from './Seeder';
 import config from '../aws-exports';
-import News from './News';
 import ContactForm from './ContactForm';
-import {Typography} from '@material-ui/core';
-import NewsAPI from './NewsAPI';
+import News from './NewsAPI';
 
 
 
@@ -68,7 +66,7 @@ const Router = () => {
                 {/* <Route path="/resources/:id" element={<ResourceContainer user={user} formData={formData} setFormData={setFormData} client={client}/>} /> */}
                 <Route path="/seeder" element={<Seeder client={client}/>} />
                 <Route path="/contact" element={<ContactForm/>} />
-                <Route path="/news" element={<NewsAPI/>} />
+                <Route path="/news" element={<News/>} />
                 
             
 

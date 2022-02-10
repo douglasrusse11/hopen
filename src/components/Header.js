@@ -4,8 +4,7 @@ import { Authenticator } from '@aws-amplify/ui-react';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import '@aws-amplify/ui-react/styles.css';
-import {AppBar, Box, Toolbar, Typography, Button, IconButton} from '@mui/material'
-import MenuIcon from '@mui/icons-material/Menu'
+
 
 const customStyles = {
     content: {
@@ -30,30 +29,7 @@ const Header = function ({ user, displayMenu, setDisplayMenu }) {
 
     return (
         <>
-        {/* <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-            onClick={() => setDisplayMenu(!displayMenu)}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            HopeN
-          </Typography>
-          <Button color="inherit"
-        //   {user ? <h1 style={styles.heading} onClick={() => {Auth.signOut(); setDisplayLogin(false)}}>Sign Out</h1> : <h1 style={styles.heading} 
-          onClick={() => setDisplayLogin(!displayLogin)}
-          
-          >Login</Button>
-        </Toolbar>
-      </AppBar>
-    </Box> */}
+       
 
         <div style={styles.container}>
             <div style={styles.headings}>
