@@ -22,7 +22,8 @@ i18n
                 resources: "Resources",
                 db: "Seed DB",
                 contact: "Contact Us",
-                news: "News"
+                news: "News",
+                spreadsheet: "Copy and paste the content of your spreadsheet here"
             },
             contact: {
                 intro: "Get in touch",
@@ -74,7 +75,8 @@ i18n
                 resources: "مصادر",
                 db: "ديسيبل البذور",
                 contact: "اتصل بنا",
-                news: "خبر"
+                news: "خبر",
+                spreadsheet: "انسخ والصق محتوى جدول البيانات هنا"
               },
               contact: {
                 intro: "ابقى على تواصل",
