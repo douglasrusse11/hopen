@@ -64,7 +64,9 @@ const Seeder = ({client}) => {
     return (
         <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "100%"}}>
             <TextField name="data" onChange={onChange} variant="outlined" multiline rows="25" label={t('home.spreadsheet') } value={data} style={{width: "60vw", marginBottom: 10, borderRadius: 10, backgroundImage: "url(/flamingo.jpg)", backgroundSize: "cover"}} />
+            <ThemeProvider theme={theme}>
             <Button variant="contained" color="primary" onClick={processData} style={{width: "60vw"}}>{t('home.db') }</Button>
+            </ThemeProvider>
         </div>
     )
 

@@ -28,11 +28,13 @@ const Menu = ({user}) => {
 }
 
 const menuStyle = {
-    height: "100%",
-    width: "100px",
+    height: "88vh",
+    width: "200px",
     backgroundColor: "#0F1626",
     paddingRight: '1vh',
-    paddingLeft: '1vh'
+    paddingLeft: '1vh',
+    position: "fixed",
+    zIndex: "1001"
 }
 
 export default Menu;
