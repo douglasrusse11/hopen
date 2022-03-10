@@ -3,12 +3,13 @@ import { Auth } from 'aws-amplify';
 import { Authenticator } from '@aws-amplify/ui-react';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
-import '@aws-amplify/ui-react/styles.css';
+
 
 import MenuIcon from '@mui/icons-material/Menu'
 import { useTranslation, Trans } from 'react-i18next';
 import ReactFlagsSelect from 'react-flags-select';
 import { Gb, Ar } from 'react-flags-select';
+import '@aws-amplify/ui-react/styles.css';
 import './authenticatorStyle.css';
 
 const customStyles = {
