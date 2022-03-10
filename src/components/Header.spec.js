@@ -11,7 +11,7 @@ jest.mock('react-router', () => {
     const originalModule = jest.requireActual('react-router');
 
     return {
-        esModule: true,
+        __esModule: true,
         ...originalModule,
         useHref: jest.fn()
         }
