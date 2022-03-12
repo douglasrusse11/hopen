@@ -4,6 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import {useHref} from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { act } from 'react-dom/test-utils';
+import '@aws-amplify/ui-react';
 
 
 const mockSetDisplayMenu = jest.fn();
@@ -25,6 +26,13 @@ jest.mock('react-i18next', () => {
         useTranslation: () => ({
             t: (text) => text === 'home.signin' ? 'home.signin' : 'home.signout', 
             i18n: {changeLanguage: mockChangeLanguage}})
+    }
+})
+
+jest.mock('@aws-amplify/ui-react', () => {
+    return {
+        ...jest.requireActual('@aws-amplify/ui-react'),
+        Authenticator: () => (<p>Login</p>)
     }
 })
 

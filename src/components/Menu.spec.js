@@ -12,6 +12,16 @@ jest.mock('react-router', () => {
         }
     })
 
+jest.mock('react-i18next', () => {
+    return {
+        ...jest.requireActual('react-i18next'),
+        useTranslation: () => ({
+            t: (text) => text, 
+            i18n: () => {}
+        })
+    }
+})
+
 const props = {
     user: null
 }
